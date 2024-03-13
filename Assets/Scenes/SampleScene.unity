@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 458261029}
   - component: {fileID: 458261028}
   - component: {fileID: 458261027}
+  - component: {fileID: 458261031}
+  - component: {fileID: 458261030}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -220,6 +222,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &458261030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458261026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4735e2617038f740b5095c5183715c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &458261031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458261026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534070dce8d65384ebf6caa70959cda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
