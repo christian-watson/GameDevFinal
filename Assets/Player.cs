@@ -15,6 +15,12 @@ public class Player : MonoBehaviour
 
     public int numOfJumps = 0;
 
+    private float horizontal;
+    private float speed = 8f;
+    private bool isFacingRight = true;
+
+    [SerializeField] private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +38,9 @@ public class Player : MonoBehaviour
                     numOfJumps++;
                 }
             }
-        if(Input.GetKeyDown(KeyCode.D)){
-            rigidbody2D.gameObject.transform.position += new Vector3(1,0,0);
-        }
+        horizontal = Input.GetAxisRaw("Horizontal");
+        
+        Flip();
 
     }
 
@@ -53,6 +59,21 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isFalling = true;
+        }
+    }
+
+    private void FixedUpdate(){
+
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+    
+    }
+
+    private void Flip(){
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f){
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
 }
