@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
                     numOfJumps++;
                 }
             }
+        if(Input.GetKeyDown(KeyCode.D)){
+            rigidbody2D.gameObject.transform.position += new Vector3(1,0,0);
+        }
 
     }
 
