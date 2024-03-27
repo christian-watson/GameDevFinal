@@ -711,7 +711,11 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Welcome to Dungeon Quest!
 
-    Press Start to Continue...'
+    Press Start to Continue...
+
+
+    By Christian
+    and Nathan!?'
 --- !u!222 &1924558850
 CanvasRenderer:
   m_ObjectHideFlags: 0
