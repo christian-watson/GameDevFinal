@@ -19,7 +19,11 @@ public class Player : MonoBehaviour
     private float speed = 8f;
     private bool isFacingRight = true;
 
+    public int[] LevelStage = new int[] { 0, 1, 2, 3};
+
+    private Vector2 startPos = new Vector2(-10,-4);
     [SerializeField] private Rigidbody2D rb;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,10 @@ public class Player : MonoBehaviour
         
         Flip();
 
+        if(transform.position.y < -7){
+            transform.position = startPos;
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -52,7 +60,13 @@ public class Player : MonoBehaviour
             isFalling = false;
             numOfJumps = 0;
         }
+        else if (other.gameObject.CompareTag("Door")){
+            gameObject.transform.position = startPos;
+
+        }
     }
+
+
 
     private void OnCollisionExit2D(Collision2D other)
     {
