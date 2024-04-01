@@ -6,7 +6,7 @@ public class NextLevel : MonoBehaviour
 {
 
 
-    [SerializeField] public int doorNum = 1;
+    [SerializeField] public static int doorNum = 1;
 
     private Vector2 startPos = new Vector2(-10,-4);
 

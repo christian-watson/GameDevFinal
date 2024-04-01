@@ -339,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 274387612}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -27.056229, y: 10.611857, z: -1.18133}
-  m_LocalScale: {x: 4.713101, y: 1.1358002, z: 1}
+  m_LocalScale: {x: 4.713103, y: 1.1358007, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 163260703}
@@ -357,7 +357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770cf55f7cf7249438d3889fd61a6b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorNum: 1
 --- !u!4 &399036632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1683868299299975607, guid: 6458ca9fffa86374681452c8dc2f6580, type: 3}
@@ -504,7 +503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770cf55f7cf7249438d3889fd61a6b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorNum: 1
 --- !u!61 &438520113
 BoxCollider2D:
   m_ObjectHideFlags: 0
