@@ -18,10 +18,8 @@ public class Player : MonoBehaviour
     private float horizontal;
     private float speed = 8f;
     private bool isFacingRight = true;
-
-    public int[] LevelStage = new int[] { 0, 1, 2, 3};
-
     private Vector2 startPos = new Vector2(-10,-4);
+
     [SerializeField] private Rigidbody2D rb;
 
 
@@ -54,16 +52,12 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        print("On collision enter");
         if (other.gameObject.CompareTag("Ground"))
         {
             isFalling = false;
             numOfJumps = 0;
         }
-        else if (other.gameObject.CompareTag("Door")){
-            gameObject.transform.position = startPos;
 
-        }
     }
 
 
