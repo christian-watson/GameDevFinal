@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
     private bool isFacingRight = true;
     private Vector2 startPos = new Vector2(-10,-4);
 
+    //HealthBar - Nathan 
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
+
     [SerializeField] private Rigidbody2D rb;
 
 
@@ -28,6 +33,10 @@ public class Player : MonoBehaviour
     {
         // TODO: Use GetComponent to get a reference to attached Rigidbody2D
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        //HealthBar
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -46,6 +55,12 @@ public class Player : MonoBehaviour
 
         if(transform.position.y < -7){
             transform.position = startPos;
+        }
+
+        //HealthBar
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            TakeDamage(20);
         }
 
     }
@@ -83,5 +98,12 @@ public class Player : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    //HealthBar method
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 }
