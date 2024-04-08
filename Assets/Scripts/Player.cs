@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
@@ -61,6 +62,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             TakeDamage(20);
+        }
+
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene("DeathScreen");
         }
 
     }
