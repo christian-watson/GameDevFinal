@@ -1,33 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Threading;
 
 public class Enemy : MonoBehaviour
 {
+    public Rigidbody2D Rb;
     public float speed = 2.0f;
     public Transform target;
     private Vector2 VectorTarget;
     private Vector2 position;
 
-    public Vector3 playerLocation = new Vector3(0,0,0);
+    private Vector3 playerLocation = new Vector3(0,0,0);
 
     private void GoToPlayer(){
         Vector3 playerLocation = target.transform.position;
-        if(target.transform.position.x > transform.position.x){
-            position.x += speed * Time.deltaTime;
+        if(!(Math.Abs(playerLocation.x - transform.position.x) <= 2)){
+            transform.position = Vector3.MoveTowards(transform.position, playerLocation, speed * Time.deltaTime);
+            }
+        }
+
+     private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Rb.AddForce(Vector3.up, ForceMode2D.Impulse);
+        }
+        if (other.gameObject.CompareTag("Player")){
+            Player test = other.gameObject.GetComponent<Player>();
+            test.TakeDamage(10);
         }
 
     }
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         GoToPlayer();
+        if(transform.position.y <= -7){
+            transform.position = new Vector3(5, -4, 0);
+        }
     }
 }

@@ -534,6 +534,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5685692563731523100, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
+      propertyPath: Rb
+      value: 
+      objectReference: {fileID: 1203046849}
+    - target: {fileID: 5685692563731523100, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
@@ -2354,6 +2358,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4493573861779678294, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
   m_PrefabInstance: {fileID: 6891791000082162375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1203046849 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: -2559063720388031344, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
+  m_PrefabInstance: {fileID: 310202937}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1219835445
 PrefabInstance:
