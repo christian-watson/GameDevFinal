@@ -7,6 +7,7 @@ using System.Threading;
 public class Enemy : MonoBehaviour
 {
     public Rigidbody2D Rb;
+    public Rigidbody2D PlayerRb;
     public float speed = 2.0f;
     public Transform target;
     private Vector2 VectorTarget;
@@ -32,6 +33,10 @@ public class Enemy : MonoBehaviour
             test.TakeDamage(10);
         }
 
+    }
+
+    private void SwitchPlatforms(){
+    
     }
     
 
