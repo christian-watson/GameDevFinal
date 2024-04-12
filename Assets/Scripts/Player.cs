@@ -22,8 +22,8 @@ public class Player : MonoBehaviour
     private Vector2 startPos = new Vector2(-10,-4);
 
     //HealthBar - Nathan 
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float maxHealth = 100f;
+    public float currentHealth;
     public HealthBar healthBar;
 
     [SerializeField] private Rigidbody2D rb;
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
             TakeDamage(20);
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0f)
         {
             SceneManager.LoadScene("DeathScreen");
         }
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
     }
 
     //HealthBar method
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);

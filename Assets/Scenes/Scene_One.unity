@@ -196,7 +196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -532.8, y: 327.8}
+  m_AnchoredPosition: {x: -349.18, y: 263.7}
   m_SizeDelta: {x: 354.08, y: 20.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154707719
@@ -3632,6 +3632,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 154707719}
+    - target: {fileID: 6891790999512006270, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7543370383488779565, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
       propertyPath: m_Name
       value: Player
