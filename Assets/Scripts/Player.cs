@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.Threading;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
@@ -16,6 +18,10 @@ public class Player : MonoBehaviour
 
     public int numOfJumps = 0;
 
+    public Enemy EnemyHealth;
+
+    public Transform EnemyTransform;
+
     private float horizontal;
     private float speed = 8f;
     private bool isFacingRight = true;
@@ -26,7 +32,8 @@ public class Player : MonoBehaviour
     public float currentHealth;
     public HealthBar healthBar;
 
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D PlayerRb;
+
 
 
     // Start is called before the first frame update
@@ -43,6 +50,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DoDamage(20);
         if (!isFalling || numOfJumps < 2){
             if(Input.GetKeyDown(KeyCode.Space))
                 {
@@ -59,16 +67,11 @@ public class Player : MonoBehaviour
         }
 
         //HealthBar
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            TakeDamage(20);
-        }
 
         if (currentHealth <= 0f)
         {
             SceneManager.LoadScene("DeathScreen");
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -89,11 +92,12 @@ public class Player : MonoBehaviour
         {
             isFalling = true;
         }
+        
     }
 
     private void FixedUpdate(){
 
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        PlayerRb.velocity = new Vector2(horizontal * speed, PlayerRb.velocity.y);
     
     }
 
@@ -112,4 +116,17 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
+
+    public void DoDamage(float damage)
+    {
+        Vector3 playerLocation = new Vector2(0,0);
+        playerLocation = EnemyTransform.transform.position;
+        if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
+            if(Input.GetKeyDown(KeyCode.R)){
+                EnemyHealth.currentHealth -= damage;
+                EnemyHealth.healthBar.SetHealth(currentHealth);
+            }
+        }
+    }
+   
 }

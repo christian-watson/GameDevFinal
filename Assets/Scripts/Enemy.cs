@@ -10,10 +10,14 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D PlayerRb;
     public float speed = 2.0f;
     public Transform target;
-
     private static double counter = 5;
+    
     private Vector2 VectorTarget;
     private Vector2 position;
+
+    public float maxHealth = 100f;
+    public float currentHealth;
+    public HealthBar healthBar;
 
     private Vector3 playerLocation = new Vector3(0,0,0);
 
@@ -28,7 +32,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Rb.AddForce(Vector3.up, ForceMode2D.Impulse);
+            Rb.AddForce(Vector3.up * 10000, ForceMode2D.Impulse);
         }
      }
 
@@ -48,11 +52,19 @@ public class Enemy : MonoBehaviour
     private void SwitchPlatforms(){
     
     }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
     
 
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
