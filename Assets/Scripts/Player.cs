@@ -50,7 +50,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DoDamage(20);
         if (!isFalling || numOfJumps < 2){
             if(Input.GetKeyDown(KeyCode.Space))
                 {
@@ -117,16 +116,6 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    public void DoDamage(float damage)
-    {
-        Vector3 playerLocation = new Vector2(0,0);
-        playerLocation = EnemyTransform.transform.position;
-        if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
-            if(Input.GetKeyDown(KeyCode.R)){
-                EnemyHealth.currentHealth -= damage;
-                EnemyHealth.healthBar.SetHealth(currentHealth);
-            }
-        }
-    }
+
    
 }

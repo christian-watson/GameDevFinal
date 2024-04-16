@@ -15,9 +15,7 @@ public class NextLevel : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print(doorNum);
-            print("Going to next stage");
             while(doorNum < 5){
-                print("this is the first test");
                 Vector2 adjustedPos = new Vector2((80 * doorNum), 0) + startPos;
                 doorNum++;
                 print(adjustedPos);

@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
             Player test = target.gameObject.GetComponent<Player>();
             if(counter >= 2){
-                test.TakeDamage(5);
+                test.TakeDamage(10);
                 counter = 0;
             }
         }
@@ -76,5 +76,26 @@ public class Enemy : MonoBehaviour
         if(transform.position.y <= -7){
             transform.position = new Vector3(5, -4, 0);
         }
+        DoDamage(20);
+        
+        healthBar.transform.position = gameObject.transform.position + new Vector3(0.0f, 1.5f, 0.0f);
     }
+
+    public void DoDamage(float damage)
+    {
+        Vector3 playerLocation = target.transform.position;
+        healthBar.transform.position = new Vector2(0.0f, 1.0f);
+        if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
+            if(Input.GetKeyDown(KeyCode.R)){
+                currentHealth -= damage;
+                healthBar.SetHealth(currentHealth);
+                if (currentHealth <= 0){
+                    gameObject.SetActive(false);
+                    healthBar.NoHealth();
+                }           
+            }
+        }
+    }
+
+    
 }
