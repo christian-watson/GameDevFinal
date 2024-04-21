@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public HealthBar healthBar;
-    private GameObject canvas;
     public Text attackText;
     private GameObject textObj;
 
@@ -43,9 +42,8 @@ public class Enemy : MonoBehaviour
     private void AttackPlayer(){
         Vector3 playerLocation = target.transform.position;
         if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
-            //AddTextToCanvas("The Player is about to attack!", canvas);
             textObj.SetActive(true);
-            attackText.text = "The Enemy is about to attack in " + (3 - (int) counter);
+            attackText.text = "Dodge the attack in " + (3 - (int) counter) + "!";
             Player test = target.gameObject.GetComponent<Player>();
             if(counter >= 3){
                     test.TakeDamage(10);
@@ -61,13 +59,7 @@ public class Enemy : MonoBehaviour
             }
         }
         
-    //public static Text AddTextToCanvas(string textString, GameObject canvasGameObject){
-      //  Text attackText = canvasGameObject.AddComponent<Text>();
-        //attackText.text = textString;
-        //return attackText;
-    //}
     
-
     private void SwitchPlatforms(){
     
     }
@@ -82,7 +74,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.Find("Canvas");
         textObj = GameObject.Find("attackText");
         attackText = textObj.GetComponent<Text>();
         textObj.SetActive(false);
@@ -101,6 +92,7 @@ public class Enemy : MonoBehaviour
         DoDamage(20);
         
         healthBar.transform.position = gameObject.transform.position + new Vector3(0.0f, 1.5f, 0.0f);
+        textObj.transform.position = new Vector2(transform.position.x, transform.position.y + 2.0f);
     }
 
     public void DoDamage(float damage)
