@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
             //AddTextToCanvas("The Player is about to attack!", canvas);
             textObj.SetActive(true);
-            attackText.text = "The Enemy is about to attack in " + (3 - (int) counter);
+            attackText.text = (3 - (int) counter) + "!";
             Player test = target.gameObject.GetComponent<Player>();
             if(counter >= 3){
                     test.TakeDamage(10);
@@ -101,6 +101,7 @@ public class Enemy : MonoBehaviour
         DoDamage(20);
         
         healthBar.transform.position = gameObject.transform.position + new Vector3(0.0f, 1.5f, 0.0f);
+        textObj.transform.position = new Vector2(transform.position.x, transform.position.y + 1.0f);
     }
 
     public void DoDamage(float damage)
