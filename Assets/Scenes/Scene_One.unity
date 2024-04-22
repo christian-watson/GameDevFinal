@@ -194,17 +194,10 @@ RectTransform:
   m_Father: {fileID: 869087883}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 221, y: -55}
+  m_AnchoredPosition: {x: 189.68, y: -18.229996}
   m_SizeDelta: {x: 354.08, y: 20.929993}
-=======
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -360.32, y: 259.8}
-  m_SizeDelta: {x: 354.08, y: 20.93}
->>>>>>> d4327cd85bbdef7e14e4afcee8fb30547ff0ecc2
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154707719
 MonoBehaviour:
@@ -531,7 +524,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 274387612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5720ed64ec95b1241b2df92126bb026b, type: 3}
+  m_Script: {fileID: 11500000, guid: 770cf55f7cf7249438d3889fd61a6b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &310202937
@@ -563,7 +556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172021416325670580, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.36
+      value: 2.3599997
       objectReference: {fileID: 0}
     - target: {fileID: 9172021416325670580, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_LocalPosition.y
@@ -579,15 +572,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172021416325670580, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9172021416325670580, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9172021416325670580, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9172021416325670580, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1973,7 +1966,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
