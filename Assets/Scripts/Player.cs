@@ -12,13 +12,11 @@ public class Player : MonoBehaviour
 
     // TODO: A float variable to control how high to jump / how much upwards
     // force to add.
-    public float jumpForce = 10.0f;
+    private float jumpForce = 6.0f;
 
-    public bool isFalling = true;
+    private bool isFalling = true;
 
-    public int numOfJumps = 0;
-
-    public Enemy EnemyHealth;
+    private int numOfJumps = 0;
 
     public Transform EnemyTransform;
 
