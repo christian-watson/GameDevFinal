@@ -12,6 +12,7 @@ public class NextLevel : MonoBehaviour
     void Start(){
         private string nextStage = SceneManager.GetActiveScene().name;
     }
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
