@@ -43,7 +43,11 @@ public class Enemy : MonoBehaviour
         Vector3 playerLocation = target.transform.position;
         if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
             textObj.SetActive(true);
+<<<<<<< HEAD
             attackText.text = "Dodge the attack in " + (3 - (int) counter) + "!";
+=======
+            attackText.text = (3 - (int) counter) + "!";
+>>>>>>> 5751ad81ea87a860fedf29e9bb835c284d954001
             Player test = target.gameObject.GetComponent<Player>();
             if(counter >= 3){
                     test.TakeDamage(10);
@@ -92,7 +96,11 @@ public class Enemy : MonoBehaviour
         DoDamage(20);
         
         healthBar.transform.position = gameObject.transform.position + new Vector3(0.0f, 1.5f, 0.0f);
+<<<<<<< HEAD
         textObj.transform.position = new Vector2(transform.position.x, transform.position.y + 2.0f);
+=======
+        textObj.transform.position = new Vector2(transform.position.x, transform.position.y + 1.0f);
+>>>>>>> 5751ad81ea87a860fedf29e9bb835c284d954001
     }
 
     public void DoDamage(float damage)
