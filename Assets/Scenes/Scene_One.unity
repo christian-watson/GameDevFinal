@@ -3981,6 +3981,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6891790999512006268, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a618ee340c8d88d4fb044bb59ab5d21b, type: 3}
+    - target: {fileID: 6891790999512006268, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891790999512006268, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891790999512006268, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6891790999512006269, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
       propertyPath: m_BodyType
       value: 0
