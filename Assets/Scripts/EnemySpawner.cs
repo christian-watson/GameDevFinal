@@ -15,4 +15,8 @@ public class EnemySpawner : MonoBehaviour
     {
         
     }
+
+    public void NewEnemy(){
+        
+    }
 }

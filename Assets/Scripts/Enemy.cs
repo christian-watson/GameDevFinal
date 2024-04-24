@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Threading;
+[RequireComponent(typeof(Rigidbody2D))]
 
 public class Enemy : MonoBehaviour
 {
+
     public Rigidbody2D Rb;
     public Rigidbody2D PlayerRb;
     public float speed = 2.0f;
@@ -17,9 +19,12 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public HealthBar healthBar;
-    private GameObject canvas;
     public Text attackText;
     private GameObject textObj;
+    private GameObject PlayerObj;
+    private GameObject Canvas;
+    private GameObject HealthBarObj;
+
 
     private Vector3 playerLocation = new Vector3(0,0,0);
 
@@ -42,13 +47,12 @@ public class Enemy : MonoBehaviour
 
     private void AttackPlayer(){
         Vector3 playerLocation = target.transform.position;
-        if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
-            //AddTextToCanvas("The Player is about to attack!", canvas);
+        if((Math.Abs(playerLocation.x - this.gameObject.transform.position.x) <= 2) && (Math.Abs(playerLocation.y - this.gameObject.transform.position.y) <= 4)){
             textObj.SetActive(true);
             attackText.text = "The Enemy is about to attack in " + (3 - (int) counter);
             Player test = target.gameObject.GetComponent<Player>();
             if(counter >= 3){
-                    test.TakeDamage(10);
+                    //test.TakeDamage(10);
                     counter = 0;
                 }
             else{
@@ -61,11 +65,6 @@ public class Enemy : MonoBehaviour
             }
         }
         
-    //public static Text AddTextToCanvas(string textString, GameObject canvasGameObject){
-      //  Text attackText = canvasGameObject.AddComponent<Text>();
-        //attackText.text = textString;
-        //return attackText;
-    //}
     
 
     private void SwitchPlatforms(){
@@ -82,12 +81,22 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.Find("Canvas");
-        textObj = GameObject.Find("attackText");
+        textObj = new GameObject();
+        Canvas = GameObject.Find("Canvas");
+        textObj.transform.parent = Canvas.transform;
+        textObj.AddComponent<Text>();
         attackText = textObj.GetComponent<Text>();
         textObj.SetActive(false);
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        MakeHealthBar();
+        PlayerObj = GameObject.Find("Player");
+        PlayerRb = PlayerObj.GetComponent<Rigidbody2D>();
+        Rb = GetComponent<Rigidbody2D>();
+        target = PlayerObj.GetComponent<Transform>();
+        attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        textObj.transform.localScale = new Vector3(1, 1, 1);
+        attackText.color = Color.black;
+        
+
     }
 
     // Update is called once per frame
@@ -101,7 +110,7 @@ public class Enemy : MonoBehaviour
         DoDamage(20);
         
         healthBar.transform.position = gameObject.transform.position + new Vector3(0.0f, 1.5f, 0.0f);
-        textObj.transform.position = new Vector2(transform.position.x, transform.position.y + 2.0f);
+        textObj.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1.0f);
     }
 
     public void DoDamage(float damage)
@@ -119,6 +128,18 @@ public class Enemy : MonoBehaviour
                 }           
             }
         }
+
+    private void MakeHealthBar(){
+        HealthBarObj = new GameObject();
+        HealthBarObj.transform.parent = Canvas.transform;
+        HealthBarObj.AddComponent<HealthBar>();
+        HealthBarObj.name = "Enemy_HealthBar";
+        healthBar = HealthBarObj.GetComponent<HealthBar>();
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+        Slider healthBarSlider = healthBar.GetComponent<Slider>();
+        healthBarSlider = Assets/HealthBarPrefab.prefab;
+    }
     }
 
     
