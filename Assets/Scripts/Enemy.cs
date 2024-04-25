@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
             attackText.text = "The Enemy is about to attack in " + (3 - (int) counter);
             Player test = target.gameObject.GetComponent<Player>();
             if(counter >= 3){
-                    //test.TakeDamage(10);
+                    test.TakeDamage(10);
                     counter = 0;
                 }
             else{
@@ -130,15 +130,10 @@ public class Enemy : MonoBehaviour
         }
 
     private void MakeHealthBar(){
-        HealthBarObj = new GameObject();
-        HealthBarObj.transform.parent = Canvas.transform;
-        HealthBarObj.AddComponent<HealthBar>();
-        HealthBarObj.name = "Enemy_HealthBar";
+        HealthBarObj = GameObject.Find("HealthBar");
+        HealthBarObj = Instantiate(HealthBarObj, Canvas.transform);
         healthBar = HealthBarObj.GetComponent<HealthBar>();
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        Slider healthBarSlider = healthBar.GetComponent<Slider>();
-        healthBarSlider = Assets/HealthBarPrefab.prefab;
+        HealthBarObj.transform.localScale = new Vector2(0.5f, 0.5f);
     }
     }
 
