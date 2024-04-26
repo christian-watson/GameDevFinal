@@ -9,15 +9,20 @@ public class NextLevel : MonoBehaviour
 
     public static int doorNum = 1;
 
-    private Vector2 startPos = new Vector2(-10,-4);
+    public Vector2 startPos = new Vector2(-10,-4);
     private static string sceneName;
     private static Scene currentScene;
+    public EnemySpawner enemySpawnerObj;
+    public GameObject prefab;
+
 
 
     void Start(){
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
         print(currentScene);
+        enemySpawnerObj = (GameObject.Find("EnemySpawnerObject")).GetComponent<EnemySpawner>();
+         prefab = GameObject.Find("Enemy");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -29,6 +34,8 @@ public class NextLevel : MonoBehaviour
                 doorNum++;
                 print(adjustedPos);
                 other.gameObject.transform.position = adjustedPos;
+                enemySpawnerObj.SpawnEnemy();
+                print("did it spawn");
             }
             else{
                 print(sceneName);
@@ -39,6 +46,13 @@ public class NextLevel : MonoBehaviour
             }
         }
         
+    }
+
+    void Update(){
+    }
+
+    public float GetSpawnPosX(){
+        return (80 * doorNum) + startPos.x;
     }
 
 }

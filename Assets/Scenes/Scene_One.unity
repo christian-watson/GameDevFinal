@@ -527,6 +527,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770cf55f7cf7249438d3889fd61a6b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPos: {x: -10, y: -4}
+  enemySpawnerObj: {fileID: 441160933}
+  prefab: {fileID: 0}
 --- !u!1001 &310202937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541,6 +544,10 @@ PrefabInstance:
     - target: {fileID: 5990762482155707642, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990762482155707642, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9172021416325670580, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_RootOrder
@@ -791,6 +798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770cf55f7cf7249438d3889fd61a6b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPos: {x: -10, y: -4}
+  enemySpawnerObj: {fileID: 0}
+  prefab: {fileID: 0}
 --- !u!61 &438520113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -869,6 +879,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &441160932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441160934}
+  - component: {fileID: 441160933}
+  m_Layer: 0
+  m_Name: EnemySpawnerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &441160933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441160932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0c29faacfd6a4ab629dd53933d541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5990762482155707642, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
+  MrObjectMan: {fileID: 274387617}
+  EnemySpawnerObj: {fileID: 441160932}
+--- !u!4 &441160934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441160932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &472919538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5990762482155707642, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9172021416325670580, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1945,6 +2006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770cf55f7cf7249438d3889fd61a6b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPos: {x: -10, y: -4}
+  enemySpawnerObj: {fileID: 0}
+  prefab: {fileID: 0}
 --- !u!61 &994066830
 BoxCollider2D:
   m_ObjectHideFlags: 0

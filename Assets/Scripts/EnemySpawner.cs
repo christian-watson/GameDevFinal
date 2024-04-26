@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public NewScene ChangeLevelObj;
     public GameObject prefab;
+    public NextLevel MrObjectMan;
+
+    public GameObject EnemySpawnerObj;
     // Start is called before the first frame update
     void Start()
     {
-        prefab = GameObject.Find("Enemy");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-    }
+    }  
 
     public void SpawnEnemy(){
-        Instantiate(prefab);
+        float xSpawnPos = MrObjectMan.GetSpawnPosX();
+        Vector3 victor3 = new Vector3 (80.0f, 0, 0.0f);
+        EnemySpawnerObj.transform.position += victor3;
+        GameObject newEnemy = Instantiate(prefab, EnemySpawnerObj.transform);
+        print(EnemySpawnerObj.transform.position);
+        print(newEnemy.transform.position);
+        newEnemy.SetActive(true);
+        prefab.SetActive(false);
     }
 }

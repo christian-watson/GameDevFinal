@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D PlayerRb;
     public float speed = 2.0f;
     public Transform target;
-    private static double counter = 0;
     private Vector2 VectorTarget;
     private Vector2 position;
     public float maxHealth = 100f;
@@ -24,6 +23,7 @@ public class Enemy : MonoBehaviour
     private GameObject PlayerObj;
     private GameObject Canvas;
     private GameObject HealthBarObj;
+    private double counter = 0;
 
 
     private Vector3 playerLocation = new Vector3(0,0,0);
@@ -128,6 +128,7 @@ public class Enemy : MonoBehaviour
                     gameObject.SetActive(false);
                     healthBar.NoHealth();
                     textObj.SetActive(false);
+                    Destroy(this);
                 }           
             }
         }
