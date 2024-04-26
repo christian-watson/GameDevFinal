@@ -87,7 +87,6 @@ public class Enemy : MonoBehaviour
         textObj.AddComponent<Text>();
         attackText = textObj.GetComponent<Text>();
         textObj.SetActive(false);
-        MakeHealthBar();
         PlayerObj = GameObject.Find("Player");
         PlayerRb = PlayerObj.GetComponent<Rigidbody2D>();
         Rb = GetComponent<Rigidbody2D>();
@@ -95,7 +94,11 @@ public class Enemy : MonoBehaviour
         attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
         textObj.transform.localScale = new Vector3(1, 1, 1);
         attackText.color = Color.black;
-        
+        HealthBarObj = GameObject.Find("HealthBar");
+        HealthBarObj = Instantiate(HealthBarObj, Canvas.transform);
+        healthBar = HealthBarObj.GetComponent<HealthBar>();
+        HealthBarObj.transform.localScale = new Vector2(0.5f, 0.5f);
+        currentHealth = maxHealth;
 
     }
 
@@ -117,7 +120,7 @@ public class Enemy : MonoBehaviour
     {
         Vector3 playerLocation = target.transform.position;
         healthBar.transform.position = new Vector2(0.0f, 1.0f);
-        if((Math.Abs(playerLocation.x - transform.position.x) <= 2) && (Math.Abs(playerLocation.y - transform.position.y) <= 4)){
+        if((Math.Abs(playerLocation.x - this.gameObject.transform.position.x) <= 2) && (Math.Abs(playerLocation.y - this.gameObject.transform.position.y) <= 4)){
             if(Input.GetKeyDown(KeyCode.R)){
                 TakeDamage(20);
                 }
@@ -129,12 +132,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-    private void MakeHealthBar(){
-        HealthBarObj = GameObject.Find("HealthBar");
-        HealthBarObj = Instantiate(HealthBarObj, Canvas.transform);
-        healthBar = HealthBarObj.GetComponent<HealthBar>();
-        HealthBarObj.transform.localScale = new Vector2(0.5f, 0.5f);
-    }
+    
     }
 
     
