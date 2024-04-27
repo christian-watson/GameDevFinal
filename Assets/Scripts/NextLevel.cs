@@ -34,7 +34,7 @@ public class NextLevel : MonoBehaviour
                 doorNum++;
                 print(adjustedPos);
                 other.gameObject.transform.position = adjustedPos;
-                enemySpawnerObj.SpawnEnemy();
+                enemySpawnerObj.SpawnEnemy(0.0f);
                 print("did it spawn");
             }
             else{
