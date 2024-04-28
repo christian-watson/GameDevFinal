@@ -22,11 +22,13 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemy(float AdjustXPos){
         float xSpawnPos = MrObjectMan.GetSpawnPosX();
         Vector3 victor3 = new Vector3 (80.0f, 0, 0.0f);
-        EnemySpawnerObj.transform.position += victor3 + new Vector3(AdjustXPos, 0.0f, 0.0f);
-        GameObject newEnemy = Instantiate(prefab, EnemySpawnerObj.transform);
-        print(EnemySpawnerObj.transform.position);
-        print(newEnemy.transform.position);
-        newEnemy.SetActive(true);
+        EnemySpawnerObj.transform.position += victor3;
+        GameObject newEnemy1 = Instantiate(prefab, EnemySpawnerObj.transform);
+        EnemySpawnerObj.transform.position += new Vector3(AdjustXPos, 0.0f, 0.0f);
+        GameObject newEnemy2 = Instantiate(prefab, EnemySpawnerObj.transform);
+        EnemySpawnerObj.transform.position -= new Vector3(AdjustXPos, 0.0f, 0.0f);
+        newEnemy1.SetActive(true);
+        newEnemy2.SetActive(true);
         prefab.SetActive(false);
     }
 }
