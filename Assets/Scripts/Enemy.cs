@@ -93,7 +93,9 @@ public class Enemy : MonoBehaviour
         target = PlayerObj.GetComponent<Transform>();
         attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
         textObj.transform.localScale = new Vector3(1, 1, 1);
-        attackText.color = Color.black;
+        attackText.color = Color.white;
+        attackText.verticalOverflow = VerticalWrapMode.Overflow;
+        attackText.horizontalOverflow = HorizontalWrapMode.Overflow;
         HealthBarObj = GameObject.Find("HealthBar");
         HealthBarObj = Instantiate(HealthBarObj, Canvas.transform);
         healthBar = HealthBarObj.GetComponent<HealthBar>();
@@ -113,7 +115,7 @@ public class Enemy : MonoBehaviour
         DoDamage(20);
         
         healthBar.transform.position = gameObject.transform.position + new Vector3(0.0f, 1.5f, 0.0f);
-        textObj.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1.0f);
+        textObj.transform.position = new Vector2(this.gameObject.transform.position.x - 1.0f, this.gameObject.transform.position.y + 1.5f);
     }
 
     public void DoDamage(float damage)
