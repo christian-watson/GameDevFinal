@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     private GameObject Canvas;
     private GameObject HealthBarObj;
     private double counter = 0;
+    public EnemySpawner EnemySpawnerObj;
 
 
     private Vector3 playerLocation = new Vector3(0,0,0);
@@ -101,8 +102,11 @@ public class Enemy : MonoBehaviour
         healthBar = HealthBarObj.GetComponent<HealthBar>();
         HealthBarObj.transform.localScale = new Vector2(0.5f, 0.5f);
         currentHealth = maxHealth;
-
+        EnemySpawnerObj = GameObject.Find("EnemySpawnerObject");
+        EnemySpawnerObj.SpawnEnemy(10.0f);
+        
     }
+    
 
     // Update is called once per frame
     void Update()

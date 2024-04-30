@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
 
         if(transform.position.y < -7){
             transform.position = startPos;
+            TakeDamage(20);
         }
 
         //HealthBar
