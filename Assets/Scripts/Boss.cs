@@ -6,16 +6,15 @@ using System;
 using System.Threading;
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class Enemy : MonoBehaviour
-{
-
+public class Boss : MonoBehaviour
+{   
     public Rigidbody2D Rb;
     public Rigidbody2D PlayerRb;
-    public float speed = 2.0f;
+    public float speed = 0.5f;
     public Transform target;
     private Vector2 VectorTarget;
     private Vector2 position;
-    public float maxHealth = 100f;
+    public float maxHealth = 200f;
     public float currentHealth;
     public HealthBar healthBar;
     public Text attackText;
@@ -24,9 +23,6 @@ public class Enemy : MonoBehaviour
     private GameObject Canvas;
     private GameObject HealthBarObj;
     private double counter = 0;
-    
-
-
     private Vector3 playerLocation = new Vector3(0,0,0);
 
     private void GoToPlayer(){
@@ -48,12 +44,12 @@ public class Enemy : MonoBehaviour
 
     private void AttackPlayer(){
         Vector3 playerLocation = target.transform.position;
-        if((Math.Abs(playerLocation.x - this.gameObject.transform.position.x) <= 2) && (Math.Abs(playerLocation.y - this.gameObject.transform.position.y) <= 4)){
+        if((Math.Abs(playerLocation.x - this.gameObject.transform.position.x) <= 7) && (Math.Abs(playerLocation.y - this.gameObject.transform.position.y) <= 4)){
             textObj.SetActive(true);
             attackText.text = "The Enemy is about to attack in " + (3 - (int) counter);
             Player test = target.gameObject.GetComponent<Player>();
             if(counter >= 3){
-                    test.TakeDamage(10);
+                    test.TakeDamage(25);
                     counter = 0;
                 }
             else{
@@ -68,9 +64,6 @@ public class Enemy : MonoBehaviour
         
     
 
-    private void SwitchPlatforms(){
-    
-    }
 
     public void TakeDamage(float damage)
     {
@@ -93,16 +86,15 @@ public class Enemy : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         target = PlayerObj.GetComponent<Transform>();
         attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-        textObj.transform.localScale = new Vector3(1, 1, 1);
+        textObj.transform.localScale = new Vector3(2f, 2f, 2f);
         attackText.color = Color.white;
         attackText.verticalOverflow = VerticalWrapMode.Overflow;
         attackText.horizontalOverflow = HorizontalWrapMode.Overflow;
-        HealthBarObj = GameObject.Find("HealthBar");
+        HealthBarObj = GameObject.Find("HealthBarPrefab");
         HealthBarObj = Instantiate(HealthBarObj, Canvas.transform);
         healthBar = HealthBarObj.GetComponent<HealthBar>();
-        HealthBarObj.transform.localScale = new Vector2(0.5f, 0.5f);
+        HealthBarObj.transform.localScale = new Vector3(1f, 1f,1f);
         currentHealth = maxHealth;
-
         
     }
     
@@ -117,8 +109,8 @@ public class Enemy : MonoBehaviour
         }
         DoDamage(20);
         
-        healthBar.transform.position = gameObject.transform.position + new Vector3(0.0f, 1.5f, 0.0f);
-        textObj.transform.position = new Vector2(this.gameObject.transform.position.x - 1.0f, this.gameObject.transform.position.y + 1.5f);
+        healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 600.0f);
+        textObj.transform.position = new Vector2(transform.position.x , transform.position.y + 5.5f);
     }
 
     public void DoDamage(float damage)
@@ -142,3 +134,4 @@ public class Enemy : MonoBehaviour
     }
 
     
+

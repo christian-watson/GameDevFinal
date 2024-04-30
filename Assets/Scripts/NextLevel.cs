@@ -7,7 +7,7 @@ public class NextLevel : MonoBehaviour
 {
 
 
-    public static int doorNum = 1;
+    public static int doorNum = 0;
 
     public Vector2 startPos = new Vector2(-10,-4);
     private static string sceneName;
@@ -20,10 +20,11 @@ public class NextLevel : MonoBehaviour
     void Start(){
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
-        print(currentScene);
         enemySpawnerObj = (GameObject.Find("EnemySpawnerObject")).GetComponent<EnemySpawner>();
-         prefab = GameObject.Find("Enemy");
+        prefab = GameObject.Find("Enemy");
+        LevelSpawnEnemy();
     }
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -47,7 +48,19 @@ public class NextLevel : MonoBehaviour
         
     }
 
+    private void LevelSpawnEnemy(){
+        if(doorNum < 1){
+            enemySpawnerObj = (GameObject.Find("EnemySpawnerObject")).GetComponent<EnemySpawner>();
+            enemySpawnerObj.SpawnEnemy(5.0f);
+            doorNum++;
+        }
+    }
+
     void Update(){
+        currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "DeathScreen"){
+            doorNum = 0;
+        }
     }
 
     public float GetSpawnPosX(){
