@@ -102,8 +102,7 @@ public class Enemy : MonoBehaviour
         healthBar = HealthBarObj.GetComponent<HealthBar>();
         HealthBarObj.transform.localScale = new Vector2(0.5f, 0.5f);
         currentHealth = maxHealth;
-        EnemySpawnerObj = GameObject.Find("EnemySpawnerObject");
-        EnemySpawnerObj.SpawnEnemy(10.0f);
+        
         
     }
     
