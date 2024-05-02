@@ -17,6 +17,7 @@ public class NextLevel : MonoBehaviour
 
 
 
+
     void Start(){
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
@@ -41,7 +42,7 @@ public class NextLevel : MonoBehaviour
                 print(sceneName);
                 doorNum = 0;
                 if(sceneName == "Scene_One"){
-                    SceneManager.LoadScene("Scene_Two");
+                    SceneManager.LoadScene("BossScene");
                 }
             }
         }

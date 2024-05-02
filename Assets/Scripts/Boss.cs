@@ -14,7 +14,7 @@ public class Boss : MonoBehaviour
     public Transform target;
     private Vector2 VectorTarget;
     private Vector2 position;
-    public float maxHealth = 200f;
+    public float maxHealth = 400f;
     public float currentHealth;
     public HealthBar healthBar;
     public Text attackText;
@@ -23,7 +23,9 @@ public class Boss : MonoBehaviour
     private GameObject Canvas;
     private GameObject HealthBarObj;
     private double counter = 0;
+    private static double AttackCounter = 0;
     private Vector3 playerLocation = new Vector3(0,0,0);
+
 
     private void GoToPlayer(){
         Vector3 playerLocation = target.transform.position;
@@ -86,40 +88,45 @@ public class Boss : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         target = PlayerObj.GetComponent<Transform>();
         attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-        textObj.transform.localScale = new Vector3(2f, 2f, 2f);
+        textObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         attackText.color = Color.white;
         attackText.verticalOverflow = VerticalWrapMode.Overflow;
         attackText.horizontalOverflow = HorizontalWrapMode.Overflow;
-        HealthBarObj = GameObject.Find("HealthBarPrefab");
+        HealthBarObj = GameObject.Find("HealthBar");
         HealthBarObj = Instantiate(HealthBarObj, Canvas.transform);
         healthBar = HealthBarObj.GetComponent<HealthBar>();
-        HealthBarObj.transform.localScale = new Vector3(1f, 1f,1f);
+        HealthBarObj.transform.localScale = new Vector3(.5f, .5f,.5f);
         currentHealth = maxHealth;
-        
+        healthBar.SetMaxHealth(maxHealth);
     }
     
 
     // Update is called once per frame
     void Update()
     {
+        AttackCounter += Time.deltaTime;
         AttackPlayer();
         GoToPlayer();
         if(transform.position.y <= -7){
             transform.position = new Vector3(5, -4, 0);
         }
         DoDamage(20);
-        
-        healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 600.0f);
-        textObj.transform.position = new Vector2(transform.position.x , transform.position.y + 5.5f);
+        healthBar.SetHealth(currentHealth);
+        healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 3.0f);
+        textObj.transform.position = new Vector2(transform.position.x - 1.0f, transform.position.y + 2.5f);
     }
 
     public void DoDamage(float damage)
     {
         Vector3 playerLocation = target.transform.position;
         healthBar.transform.position = new Vector2(0.0f, 1.0f);
-        if((Math.Abs(playerLocation.x - this.gameObject.transform.position.x) <= 2) && (Math.Abs(playerLocation.y - this.gameObject.transform.position.y) <= 4)){
+        if((Math.Abs(playerLocation.x - this.gameObject.transform.position.x) <= 5) && (Math.Abs(playerLocation.y - this.gameObject.transform.position.y) <= 4)){
             if(Input.GetKeyDown(KeyCode.R)){
+                if(AttackCounter > .5f){
                 TakeDamage(20);
+                healthBar.SetHealth(currentHealth);
+                AttackCounter = 0.0f;
+                }
                 }
             if (currentHealth <= 0){
                     gameObject.SetActive(false);
