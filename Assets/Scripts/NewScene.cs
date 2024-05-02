@@ -27,7 +27,5 @@ public class NewScene : MonoBehaviour
 
     }
 
-    public void LoadEnemyOnTwo(){
-    }
 
 }
