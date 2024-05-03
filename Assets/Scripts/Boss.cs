@@ -95,7 +95,7 @@ public class Boss : MonoBehaviour
         HealthBarObj = GameObject.Find("HealthBar");
         HealthBarObj = Instantiate(HealthBarObj, Canvas.transform);
         healthBar = HealthBarObj.GetComponent<HealthBar>();
-        HealthBarObj.transform.localScale = new Vector3(.5f, .5f,.5f);
+        HealthBarObj.transform.localScale = new Vector3(1.5f, 1.5f,1.5f);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -113,7 +113,7 @@ public class Boss : MonoBehaviour
         DoDamage(20);
         healthBar.SetHealth(currentHealth);
         healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 3.0f);
-        textObj.transform.position = new Vector2(transform.position.x - 1.0f, transform.position.y + 2.5f);
+        textObj.transform.position = new Vector2(transform.position.x - 1.0f, transform.position.y + 3.5f);
     }
 
     public void DoDamage(float damage)

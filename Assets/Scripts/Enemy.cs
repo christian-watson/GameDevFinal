@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     private GameObject Canvas;
     private GameObject HealthBarObj;
     private double counter = 0;
+    private double AttackCounter = 0;
     
 
 
@@ -93,7 +94,7 @@ public class Enemy : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         target = PlayerObj.GetComponent<Transform>();
         attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-        textObj.transform.localScale = new Vector3(1, 1, 1);
+        textObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         attackText.color = Color.white;
         attackText.verticalOverflow = VerticalWrapMode.Overflow;
         attackText.horizontalOverflow = HorizontalWrapMode.Overflow;
@@ -102,6 +103,7 @@ public class Enemy : MonoBehaviour
         healthBar = HealthBarObj.GetComponent<HealthBar>();
         HealthBarObj.transform.localScale = new Vector2(0.5f, 0.5f);
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
 
         
         
@@ -111,6 +113,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AttackCounter += Time.deltaTime;
         AttackPlayer();
         GoToPlayer();
         if(transform.position.y <= -7){
@@ -119,7 +122,7 @@ public class Enemy : MonoBehaviour
         DoDamage(20);
         
         healthBar.transform.position = gameObject.transform.position + new Vector3(0.0f, 1.5f, 0.0f);
-        textObj.transform.position = new Vector2(this.gameObject.transform.position.x - 1.0f, this.gameObject.transform.position.y + 1.5f);
+        textObj.transform.position = new Vector2(this.gameObject.transform.position.x - 0.5f, this.gameObject.transform.position.y + 1.5f);
     }
 
     public void DoDamage(float damage)
@@ -128,7 +131,10 @@ public class Enemy : MonoBehaviour
         healthBar.transform.position = new Vector2(0.0f, 1.0f);
         if((Math.Abs(playerLocation.x - this.gameObject.transform.position.x) <= 2) && (Math.Abs(playerLocation.y - this.gameObject.transform.position.y) <= 4)){
             if(Input.GetKeyDown(KeyCode.R)){
-                TakeDamage(20);
+                if(AttackCounter >= .5f){
+                    TakeDamage(20);
+                    AttackCounter = 0;
+                }
                 }
             if (currentHealth <= 0){
                     gameObject.SetActive(false);

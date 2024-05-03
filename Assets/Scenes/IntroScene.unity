@@ -36137,8 +36137,8 @@ RectTransform:
   m_GameObject: {fileID: 1427206463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2105555780}
   m_Father: {fileID: 869087883}
@@ -36146,7 +36146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -96.900024, y: 27.640015}
+  m_AnchoredPosition: {x: -210.91998, y: 73.20001}
   m_SizeDelta: {x: 160, y: 46.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427206465
@@ -36218,8 +36218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0.21568629, g: 0.21568629, b: 0.21568629, a: 1}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -51999,7 +51999,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press here to play the game
+  m_Text: 'Continue...
+
+'
 --- !u!222 &2105555782
 CanvasRenderer:
   m_ObjectHideFlags: 0
