@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Rigidbody2D PlayerRb;
 
+    public NextLevel LevelObj;
+
 
 
     // Start is called before the first frame update
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         
         Flip();
-
+        startPos = new Vector2(LevelObj.GetSpawnPosX() - 80.0f, -4);
         if(transform.position.y < -7){
             transform.position = startPos;
             TakeDamage(20);

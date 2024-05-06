@@ -29,15 +29,16 @@ public class IntroText : MonoBehaviour
     { 
         ChangeFirstText();
         ChangeSecondText();
+        ChangeThirdText();
         nextScene();
     }
 
     private void ChangeFirstText(){
         if(textNum == 0){
-            if(Input.GetKeyDown(KeyCode.A)){
+            if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
                 PressedA = true;
             }
-            if(Input.GetKeyDown(KeyCode.D)){
+            if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
                 PressedD = true;
             }
             if(PressedA && PressedD){
@@ -48,7 +49,7 @@ public class IntroText : MonoBehaviour
     }
 
     private void ChangeSecondText(){
-        if(textNum == 1){
+        if(textNum == 2){
         if(Input.GetKeyDown(KeyCode.Space)){
             textObj.text = "Good Job! Now jump on the platforms to make it to the end of the level!";
             textNum ++;
@@ -56,8 +57,18 @@ public class IntroText : MonoBehaviour
     }
     }
 
+    private void ChangeThirdText(){
+        if(textNum == 1){
+            textObj.text = "Try double jumping!";
+            if(Input.GetKeyDown(KeyCode.Space)){
+                textNum++;
+                print("bleh");
+            }
+        }
+        }
+    
     private void OnCollisionEnter2D(Collision2D other){
-        if(textNum == 2){
+        if(textNum == 3){
             if (other.gameObject.CompareTag("Player")){
                 other.gameObject.transform.position = new Vector3(65.0f, -5.0f, 0f);
                 Enemy1.SetActive(true);
@@ -69,7 +80,7 @@ public class IntroText : MonoBehaviour
     }
 
     private void nextScene(){
-        if(textNum == 3){
+        if(textNum == 4){
             if(!(Enemy1.activeInHierarchy)){
             textObj.text = "Press the button in the bottom right to play level 1!";
             theButton.SetActive(true);
