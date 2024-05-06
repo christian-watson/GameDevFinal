@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
 
     public NextLevel LevelObj;
 
+    Animator animController;
+
 
 
     // Start is called before the first frame update
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
     {
         // TODO: Use GetComponent to get a reference to attached Rigidbody2D
         rigidbody2D = GetComponent<Rigidbody2D>();
-
+        animController = this.gameObject.GetComponent<Animator>();
         //HealthBar
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
         if (!isFalling || numOfJumps < 2){
             if(Input.GetKeyDown(KeyCode.Space))
                 {
+                    animController.SetTrigger("Jump");
                     rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
                     numOfJumps++;
                 }
@@ -65,6 +68,9 @@ public class Player : MonoBehaviour
         if(transform.position.y < -7){
             transform.position = startPos;
             TakeDamage(20);
+        }
+        if(rigidbody2D.velocity.x != 0){
+            animController.SetTrigger("Run");
         }
 
         //HealthBar

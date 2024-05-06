@@ -18,6 +18,7 @@ public class IntroText : MonoBehaviour
     public GameObject spawnerObj;
     GameObject Enemy1;
     public GameObject theButton;
+    public GameObject NextLevelObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,17 +53,16 @@ public class IntroText : MonoBehaviour
         if(textNum == 2){
         if(Input.GetKeyDown(KeyCode.Space)){
             textObj.text = "Good Job! Now jump on the platforms to make it to the end of the level!";
-            textNum ++;
+            textNum++;
         }
     }
     }
 
     private void ChangeThirdText(){
         if(textNum == 1){
-            textObj.text = "Try double jumping!";
             if(Input.GetKeyDown(KeyCode.Space)){
                 textNum++;
-                print("bleh");
+                textObj.text = "Try double jumping!";
             }
         }
         }
@@ -74,6 +74,7 @@ public class IntroText : MonoBehaviour
                 Enemy1.SetActive(true);
                 textObj.text = "Press R to damage the enemy!";
                 textNum++;
+                NextLevelObj.transform.position += new Vector3(80.0f, 0, 0);
                 
             }
         }
