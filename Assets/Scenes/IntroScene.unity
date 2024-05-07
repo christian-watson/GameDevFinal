@@ -12720,6 +12720,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 691916981}
+    - target: {fileID: 6891791000082162380, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
     - target: {fileID: 7543370383488779565, guid: eac07b524b0c02d4da9b487f63041cc5, type: 3}
       propertyPath: m_Name
       value: Player

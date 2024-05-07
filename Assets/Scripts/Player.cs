@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
             TakeDamage(20);
         }
         if(rigidbody2D.velocity.x != 0){
-            animController.SetTrigger("Run");
+            animController.SetTrigger("HeroKnight_Run");
         }
 
         //HealthBar
