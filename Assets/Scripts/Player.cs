@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
 
     Animator animController;
 
+    int counter = 0;
+
 
 
     // Start is called before the first frame update
@@ -72,7 +74,7 @@ public class Player : MonoBehaviour
         if(rigidbody2D.velocity.x != 0){
             animController.SetTrigger("HeroKnight_Run");
         }
-
+        movementAnimations();
         //HealthBar
 
         if (currentHealth <= 0f)
@@ -120,10 +122,23 @@ public class Player : MonoBehaviour
     //HealthBar method
     public void TakeDamage(float damage)
     {
+        animController.SetTrigger("Hurt");
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
 
+    private void movementAnimations(){
+        bool AnimationPlaying = animController.GetBool("HeroKnight_Run");
+        print(AnimationPlaying);
+        if(rigidbody2D.velocity.x != 0){
+                animController.SetTrigger("HeroKnight_Run");
+            }
+        if(rigidbody2D.velocity.x == 0 && !AnimationPlaying){
+            animController.ResetTrigger("HeroKnight_Run");
+            animController.ResetTrigger("IdleBlock");
+            print("anim should not play");
+        }
+    }
 
    
 }

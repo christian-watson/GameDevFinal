@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     private GameObject HealthBarObj;
     private double counter = 0;
     private double AttackCounter = 0;
+    Animator animator;
     
 
 
@@ -91,6 +92,7 @@ public class Enemy : MonoBehaviour
         textObj.SetActive(false);
         PlayerObj = GameObject.Find("Player");
         PlayerRb = PlayerObj.GetComponent<Rigidbody2D>();
+        animator = PlayerObj.GetComponent<Animator>();
         Rb = GetComponent<Rigidbody2D>();
         target = PlayerObj.GetComponent<Transform>();
         attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
@@ -134,6 +136,7 @@ public class Enemy : MonoBehaviour
                 if(AttackCounter >= .5f){
                     TakeDamage(20);
                     AttackCounter = 0;
+                    animator.SetTrigger("Attack1");
                 }
                 }
             if (currentHealth <= 0){
