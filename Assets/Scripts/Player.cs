@@ -129,14 +129,12 @@ public class Player : MonoBehaviour
 
     private void movementAnimations(){
         bool AnimationPlaying = animController.GetBool("HeroKnight_Run");
-        print(AnimationPlaying);
         if(rigidbody2D.velocity.x != 0){
                 animController.SetTrigger("HeroKnight_Run");
             }
         if(rigidbody2D.velocity.x == 0 && !AnimationPlaying){
             animController.ResetTrigger("HeroKnight_Run");
             animController.ResetTrigger("IdleBlock");
-            print("anim should not play");
         }
     }
 

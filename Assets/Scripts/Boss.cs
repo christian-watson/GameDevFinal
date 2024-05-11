@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Threading;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class Boss : MonoBehaviour
@@ -25,6 +26,7 @@ public class Boss : MonoBehaviour
     private double counter = 0;
     private static double AttackCounter = 0;
     private Vector3 playerLocation = new Vector3(0,0,0);
+    private Animator animator;
 
 
     private void GoToPlayer(){
@@ -98,6 +100,7 @@ public class Boss : MonoBehaviour
         HealthBarObj.transform.localScale = new Vector3(1.5f, 1.5f,1.5f);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        animator = PlayerObj.GetComponent<Animator>();
     }
     
 
@@ -112,8 +115,8 @@ public class Boss : MonoBehaviour
         }
         DoDamage(20);
         healthBar.SetHealth(currentHealth);
-        healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 3.0f);
-        textObj.transform.position = new Vector2(transform.position.x - 1.0f, transform.position.y + 3.5f);
+        healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 2.0f);
+        textObj.transform.position = new Vector2(transform.position.x - 1.0f, transform.position.y + 2.5f);
     }
 
     public void DoDamage(float damage)
@@ -126,13 +129,15 @@ public class Boss : MonoBehaviour
                 TakeDamage(20);
                 healthBar.SetHealth(currentHealth);
                 AttackCounter = 0.0f;
+                animator.SetTrigger("Attack1");
                 }
                 }
-            if (currentHealth <= 0){
+            if (currentHealth <= 0){ 
                     gameObject.SetActive(false);
                     healthBar.NoHealth();
                     textObj.SetActive(false);
                     Destroy(this);
+                    SceneManager.LoadScene("Victory Screen");
                 }           
             }
         }

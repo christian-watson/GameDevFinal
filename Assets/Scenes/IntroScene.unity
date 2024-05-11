@@ -41689,7 +41689,7 @@ MonoBehaviour:
   prefab: {fileID: 5990762482155707642, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
   spawnerObj: {fileID: 1588006447}
   theButton: {fileID: 1427206463}
-  NextLevelObj: {fileID: 0}
+  NextLevelObj: {fileID: 2813475}
 --- !u!61 &1670868017
 BoxCollider2D:
   m_ObjectHideFlags: 0
