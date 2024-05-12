@@ -89,7 +89,7 @@ public class Boss : MonoBehaviour
         PlayerRb = PlayerObj.GetComponent<Rigidbody2D>();
         Rb = GetComponent<Rigidbody2D>();
         target = PlayerObj.GetComponent<Transform>();
-        attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        attackText.font = Resources.GetBuiltinResource(typeof(Font), "LegacyRuntime.ttf") as Font;
         textObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         attackText.color = Color.white;
         attackText.verticalOverflow = VerticalWrapMode.Overflow;
@@ -115,8 +115,18 @@ public class Boss : MonoBehaviour
         }
         DoDamage(20);
         healthBar.SetHealth(currentHealth);
+<<<<<<< HEAD
         healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 2.0f);
         textObj.transform.position = new Vector2(transform.position.x - 1.0f, transform.position.y + 2.5f);
+=======
+        healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 3.0f);
+        textObj.transform.position = new Vector2(transform.position.x - 1.0f, transform.position.y + 3.5f);
+
+        if (currentHealth <= 0f)
+        {
+            SceneManager.LoadScene("VictoryScene");
+        }
+>>>>>>> ccf363aeb282ab07458d82b0d8ac1b4831b4f52a
     }
 
     public void DoDamage(float damage)

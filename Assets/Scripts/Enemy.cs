@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
         animator = PlayerObj.GetComponent<Animator>();
         Rb = GetComponent<Rigidbody2D>();
         target = PlayerObj.GetComponent<Transform>();
-        attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        attackText.font = Resources.GetBuiltinResource(typeof(Font), "LegacyRuntime.ttf") as Font;
         textObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         attackText.color = Color.white;
         attackText.verticalOverflow = VerticalWrapMode.Overflow;
