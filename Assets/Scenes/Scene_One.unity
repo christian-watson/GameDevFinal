@@ -55481,6 +55481,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+<<<<<<< HEAD
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
@@ -55603,6 +55604,8 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+=======
+>>>>>>> parent of df74c84 (Fixing spawn issues)
     m_TransformParent: {fileID: 403759818}
     m_Modifications:
     - target: {fileID: 1899330541, guid: 6458ca9fffa86374681452c8dc2f6580, type: 3}
@@ -55660,6 +55663,7 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6458ca9fffa86374681452c8dc2f6580, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -55677,5 +55681,7 @@ SceneRoots:
   - {fileID: 279654060}
   - {fileID: 2466522114126510220}
   - {fileID: 570434066}
+=======
+>>>>>>> parent of df74c84 (Fixing spawn issues)
 =======
 >>>>>>> parent of df74c84 (Fixing spawn issues)
