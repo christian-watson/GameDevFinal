@@ -5836,8 +5836,11 @@ Transform:
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!4 &274387616 stripped
 =======
+=======
+>>>>>>> parent of ccf363a (Finished the game)
 --- !u!1 &274387612
 GameObject:
   m_ObjectHideFlags: 0
@@ -5867,6 +5870,28 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+<<<<<<< HEAD
+=======
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+>>>>>>> parent of ccf363a (Finished the game)
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -5936,35 +5961,53 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &274387616
+<<<<<<< HEAD
 >>>>>>> parent of df74c84 (Fixing spawn issues)
+=======
+>>>>>>> parent of ccf363a (Finished the game)
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1663962552149433841, guid: cf0f9e0a87a3fc3459f375ea89f1e1a8, type: 3}
-  m_PrefabInstance: {fileID: 4407815258604529930}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!114 &274387617 stripped
 =======
   m_GameObject: {fileID: 274387612}
+=======
+  m_GameObject: {fileID: 274387612}
+  serializedVersion: 2
+>>>>>>> parent of ccf363a (Finished the game)
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -27.32, y: 11.15, z: -1.18133}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.71428573}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 163260703}
+<<<<<<< HEAD
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &274387617
 >>>>>>> parent of df74c84 (Fixing spawn issues)
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274387617
+>>>>>>> parent of ccf363a (Finished the game)
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2332650075703793517, guid: cf0f9e0a87a3fc3459f375ea89f1e1a8, type: 3}
-  m_PrefabInstance: {fileID: 4407815258604529930}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 274387612}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770cf55f7cf7249438d3889fd61a6b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPos: {x: -10, y: -4}
+  enemySpawnerObj: {fileID: 441160933}
+  prefab: {fileID: 0}
 --- !u!1 &275670011
 GameObject:
   m_ObjectHideFlags: 0
@@ -11171,19 +11214,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &441160933 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9150724983355643535, guid: 568c3b40c17457d46b43f6d4ad0fa955, type: 3}
-  m_PrefabInstance: {fileID: 2466522114126510220}
+--- !u!1 &441160932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441160934}
+  - component: {fileID: 441160933}
+  m_Layer: 0
+  m_Name: EnemySpawnerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &441160933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441160932}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75c0c29faacfd6a4ab629dd53933d541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of ccf363a (Finished the game)
   prefab: {fileID: 5990762482155707642, guid: c86229feea74f034fbd08029e6ddf736, type: 3}
   MrObjectMan: {fileID: 274387617}
   EnemySpawnerObj: {fileID: 441160932}
@@ -11194,15 +11258,25 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441160932}
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -74, y: 0, z: 0}
+=======
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.6, y: 0, z: 0}
+>>>>>>> parent of ccf363a (Finished the game)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> parent of df74c84 (Fixing spawn issues)
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> parent of ccf363a (Finished the game)
 --- !u!1 &444680797
 GameObject:
   m_ObjectHideFlags: 0
@@ -55476,6 +55550,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1683868299299975607, guid: 6458ca9fffa86374681452c8dc2f6580, type: 3}
   m_PrefabInstance: {fileID: 1978802850}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &2466522114126510220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55599,6 +55674,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf0f9e0a87a3fc3459f375ea89f1e1a8, type: 3}
+=======
+>>>>>>> parent of ccf363a (Finished the game)
 --- !u!1001 &6417256330274375376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55679,7 +55756,7 @@ SceneRoots:
   - {fileID: 1101197478}
   - {fileID: 273464072}
   - {fileID: 279654060}
-  - {fileID: 2466522114126510220}
+  - {fileID: 441160934}
   - {fileID: 570434066}
 =======
 >>>>>>> parent of df74c84 (Fixing spawn issues)

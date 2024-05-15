@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Threading;
-using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class Boss : MonoBehaviour
@@ -89,7 +88,7 @@ public class Boss : MonoBehaviour
         PlayerRb = PlayerObj.GetComponent<Rigidbody2D>();
         Rb = GetComponent<Rigidbody2D>();
         target = PlayerObj.GetComponent<Transform>();
-        attackText.font = Resources.GetBuiltinResource(typeof(Font), "LegacyRuntime.ttf") as Font;
+        attackText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
         textObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         attackText.color = Color.white;
         attackText.verticalOverflow = VerticalWrapMode.Overflow;
@@ -121,12 +120,15 @@ public class Boss : MonoBehaviour
 =======
         healthBar.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 3.0f);
         textObj.transform.position = new Vector2(transform.position.x - 1.0f, transform.position.y + 3.5f);
+<<<<<<< HEAD
 
         if (currentHealth <= 0f)
         {
             SceneManager.LoadScene("VictoryScene");
         }
 >>>>>>> ccf363aeb282ab07458d82b0d8ac1b4831b4f52a
+=======
+>>>>>>> parent of ccf363a (Finished the game)
     }
 
     public void DoDamage(float damage)
