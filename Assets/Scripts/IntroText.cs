@@ -74,7 +74,7 @@ public class IntroText : MonoBehaviour
                 Enemy1.SetActive(true);
                 textObj.text = "Press R to damage the enemy!";
                 textNum++;
-                NextLevelObj.transform.position += new Vector3(20.0f, 0, 0);
+                NextLevelObj.transform.position += new Vector3(80.0f, 0, 0);
                 
             }
         }
